@@ -1,4 +1,3 @@
-export const TypeDefs = `
 type USER {
   idUser: ID!
   nickname: String
@@ -11,9 +10,7 @@ type USER {
   emailNotifications: Boolean
   picturePath: String
   purpose: String
-  fcgroups: [FCGroup] @relation(name: "OWN", direction: OUT)
 }
-
 
 type FC {
   idFc: ID!
@@ -24,28 +21,13 @@ type FC {
   comments: String
 }
 
-
 type FCGroup {
   idFcg: ID!
   title: String
   lastModifyDate: String
   creationDate: String
   tags: String
-  fcs: [FC] @relation(name: "CONTAINS", direction: OUT)
 }
 
 
 
-`
-
-export const resolvers = {
-  Query: {
-    USER: neo4jgraphql,
-    FC: neo4jgraphql,
-    FCGroup: neo4jgraphql,
-    CAT: neo4jgraphql,
-    SCAT: neo4jgraphql
-
-  }
-
-}
